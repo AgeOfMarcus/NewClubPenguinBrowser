@@ -105,10 +105,19 @@ app.on('ready', function () {
 			plugins: true
 		}
 	})
-	promptIt(false, win);
+	win.loadURL('https://play.newcp.net');
+	win.maximize();
+	setTimeout(() => {
+		win.show(); //pauses program for 1 second to allow web-page to load before rendering.
+	}, 1000);
+	//promptIt(false, win);
 	win.webContents.session.clearCache(function () {
 		//clearCache
 	});
+	// block ads
+	setInterval(() => {
+		win.webContents.executeJavaScript(`[...document.querySelectorAll('[data-google-query-id]')].forEach((el) => { el.style.display = 'none' })`);
+	}, 3000);
 	
 })
 
