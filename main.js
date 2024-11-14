@@ -105,7 +105,7 @@ app.on('ready', function () {
 			plugins: true
 		}
 	})
-	win.loadURL('https://play.newcp.net');
+	win.loadURL('https://newcp.net/game#/login');
 	win.maximize();
 	setTimeout(() => {
 		win.show(); //pauses program for 1 second to allow web-page to load before rendering.
